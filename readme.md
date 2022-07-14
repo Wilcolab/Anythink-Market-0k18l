@@ -10,4 +10,10 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 
 ## First setup
 
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+This section explains the initial setup process for getting spinning up this project on a new computer.
+
+0. Clone the repo.
+1. Install docker [here](https://docs.docker.com/get-docker/).
+2. Verify docker installation by entering `docker -v` and `docker-compose -v` in your terminal.
+3. Run `docker-compose up` and once you see the message `Attaching to anythink-backend, anythink-frontend, mongodb` in your terminal go to ` http://localhost:3000/api/ping` for a quick health check on the backend.
+4. Register your test user at `http://localhost:3001/register`
