@@ -4,6 +4,7 @@ import React from "react";
 import agent from "../../agent";
 import { connect } from "react-redux";
 import marked from "marked";
+import { isValidURL } from "../../utils";
 import {
   ITEM_PAGE_LOADED,
   ITEM_PAGE_UNLOADED,
@@ -41,6 +42,7 @@ class Item extends React.Component {
     const markup = {
       __html: marked(this.props.item.description, { sanitize: true }),
     };
+
     const canModify =
       this.props.currentUser &&
       this.props.currentUser.username === this.props.item.seller.username;
@@ -50,7 +52,11 @@ class Item extends React.Component {
           <div className="row bg-white p-4">
             <div className="col-6">
               <img
-                src={this.props.item.image}
+                src={
+                  isValidURL(this.props.item.image)
+                    ? this.props.item.image
+                    : "/placeholder.png"
+                }
                 alt={this.props.item.title}
                 className="item-img"
                 style={{ height: "500px", width: "100%", borderRadius: "6px" }}
