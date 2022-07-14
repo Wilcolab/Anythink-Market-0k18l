@@ -24,6 +24,10 @@ ItemSchema.pre("validate", function(next) {
     this.slugify();
   }
 
+  if(this.image.length === 0) {
+    this.image = '/placeholder.png'
+  }
+
   next();
 });
 
